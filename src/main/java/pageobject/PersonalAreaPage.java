@@ -1,5 +1,6 @@
 package pageobject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -16,12 +17,18 @@ public class PersonalAreaPage {
     public String getLink() {
         return driver.getCurrentUrl();
     }
+
+    @Step("Клик по кнопке 'Выход'")
     public void clickExitButton() {
         driver.findElement(exitButton).click();
     }
+
+    @Step("Клик по кнопке 'Конструктор'")
     public void clickConstructorButton() {
         driver.findElement(constructorButton).click();
     }
+
+    @Step("Клик по логотипу")
     public void clickLogo() {
         driver.findElement(logo).click();
     }

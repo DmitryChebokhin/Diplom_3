@@ -43,7 +43,7 @@ public class MainPageTest {
     }
 
     @After
-    public void teardown() {
+    public void tearDown() {
         driver.quit();
     }
 }

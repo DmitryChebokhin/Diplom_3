@@ -64,7 +64,7 @@ public class RegistrationPageTest {
     }
 
     @After
-    public void teardown() {
+    public void tearDown() {
         driver.quit();
         if (accessToken != null) {
             userClient.deleteUser(accessToken)

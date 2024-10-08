@@ -1,5 +1,6 @@
 package pageobject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -21,32 +22,43 @@ public class MainPage {
     public String getLink() {
         return driver.getCurrentUrl();
     }
+
+    @Step("Клик по кнопке 'Личный кабинет'")
     public void clickPersonalAreaButton() {
         driver.findElement(personalAreaButton).click();
     }
 
+    @Step("Клик по кнопке 'Войти в акаунт'")
     public void clickEnterAccountButton() {
         driver.findElement(enterAccountButton).click();
     }
 
+    @Step("Клик по переключателю 'Булки'")
     public void clickBunsSwitch() {
         driver.findElement(bunsSwitch).click();
     }
 
+    @Step("Клик по переключателю 'Соусы'")
     public void clickSaucesSwitch() {
         driver.findElement(saucesSwitch).click();
     }
 
+    @Step("Клик по переключателю 'Начинки'")
     public void clickFillingsSwitch() {
         driver.findElement(fillingsSwitch).click();
     }
 
+    @Step("Булки отобразились")
     public boolean bunsHeaderIsDisplayed() {
         return driver.findElement(bunsIsSelected).isDisplayed();
     }
+
+    @Step("Соусы отобразились")
     public boolean saucesHeaderIsDisplayed() {
         return driver.findElement(saucesIsSelected).isDisplayed();
     }
+
+    @Step("Начинки отобразились")
     public boolean fillingsHeaderIsDisplayed() {
         return driver.findElement(fillingsIsSelected).isDisplayed();
     }

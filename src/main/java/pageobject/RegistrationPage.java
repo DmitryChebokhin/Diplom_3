@@ -1,5 +1,6 @@
 package pageobject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,24 +20,36 @@ public class RegistrationPage {
     public RegistrationPage(WebDriver driver) {
         this.driver = driver;
     }
+
+    @Step("Ввод имени")
     public void setName(String name) {
         driver.findElement(nameField).sendKeys(name);
     }
+
+    @Step("Ввод E-mail'")
     public void setEmail(String email) {
         driver.findElement(emailField).sendKeys(email);
     }
+
+    @Step("Ввод пароля")
     public void setPassword(String password) {
         driver.findElement(passwordField).sendKeys(password);
     }
+
+    @Step("Клик по кнопке 'Зарегистрироваться'")
     public void clickRegistrationButton() {
         driver.findElement(registrationButton).click();
     }
+
+    @Step("Проверка регистрации пользователя")
     public void userRegistration(String name, String email, String password) {
         setName(name);
         setEmail(email);
         setPassword(password);
         clickRegistrationButton();
     }
+
+    @Step("Клик по кнопке 'Войти'")
     public void clickEnterButton() {
         driver.findElement(enterButton).click();
     }
@@ -44,6 +57,8 @@ public class RegistrationPage {
         WebElement element = driver.findElement(warningIncorrectPassword);
         return element.getText();
     }
+
+    @Step("Ожидание сообщения о некорректном пароле")
     public void waitError() {
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.visibilityOfElementLocated(warningIncorrectPassword));
